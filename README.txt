@@ -1,1 +1,1 @@
-On the Menu chagned
+On the Menu Changed react-native is set up
