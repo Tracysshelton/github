@@ -1,20 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, SafeAreaView, ScrollView, StyleSheet, ImageBackground, TextInput, TouchableOpacity } from 'react-native';
 import Carousel from 'react-native-snap-carousel';
 import BannerSlider from '../../components/BannerSlider';
+import CustomSwitch from '../../components/CustomSwitch';
+import ListItems from '../../components/ListItems';
 import { windowWidth } from '../../utils/Dimensions';
-import { sliderData } from '../../model/data';
+import { sliderData, latestChef, yourchef } from '../../model/data';
 
-const Home = () => {
+const Home = ({navigation}) => {
     const renderBanner = ({item, index}) => {
         return <BannerSlider data={item} />
+    }
+    const [latestTab, setLatestTab] = useState(1);
+    const onSelectSwitch =(value) => {
+        setLatestTab(value)
     }
     return (
         <SafeAreaView style={styles.inforcontainer}>
             <ScrollView style={{padding:20}}>
                 <View style={styles.infoline}>
                     <Text style={{fontSize:18,fontWeight:'bold'}}>Yes Chef</Text>
-                    <ImageBackground source={require('../../assets/images/photo.jpg')} style={styles.headerinmage} imageStyle={{borderRadius: 25}} />
+                    <TouchableOpacity onPress={()=> navigation.goBack()}>
+                        <ImageBackground source={require('../../assets/images/photo.jpg')} style={styles.headerinmage} imageStyle={{borderRadius: 25}} />
+                    </TouchableOpacity>
                 </View>
 
                 <View style={styles.searchwrapper}>
@@ -44,6 +52,19 @@ const Home = () => {
                     itemWidth={300}
                     loop={true}
                 />
+                <View style={{marginVertical: 20}}>
+                    <CustomSwitch selectionMode={1} option1="latest" option2="yours" onSelectSwitch={onSelectSwitch} />
+                </View>
+                {latestTab == 1 && 
+                    latestChef.map(item => (
+                        <ListItems Key={item.id} image={item.image} title={item.title} subtitle={item.subtitle} />
+                    ))
+                }
+                {latestTab == 2 && 
+                    yourchef.map( item =>(
+                        <ListItems Key={item.id} image={item.image} title={item.title} subtitle={item.subtitle} />
+                    ))
+                }
             </ScrollView>
         </SafeAreaView>
     )
