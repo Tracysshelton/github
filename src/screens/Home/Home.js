@@ -20,7 +20,7 @@ const Home = ({navigation}) => {
             <ScrollView style={{padding:20}}>
                 <View style={styles.infoline}>
                     <Text style={{fontSize:18,fontWeight:'bold'}}>Yes Chef</Text>
-                    <TouchableOpacity onPress={()=> navigation.goBack()}>
+                    <TouchableOpacity onPress={()=> navigation.openDrawer()}>
                         <ImageBackground source={require('../../assets/images/photo.jpg')} style={styles.headerinmage} imageStyle={{borderRadius: 25}} />
                     </TouchableOpacity>
                 </View>
