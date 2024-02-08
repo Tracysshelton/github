@@ -3,7 +3,6 @@ import { SafeAreaView, ScrollView, View, Text,StyleSheet, Image, TextInput, Touc
 
 import InputField from '../../components/InputField';
 import CustomButton from '../../components/CustomButton';
-// import DatePicker from 'react-native-date-picker';
 
 const Register = ({navigation}) => {
     const [date, setDate] = useState(new Date())
@@ -17,32 +16,11 @@ const Register = ({navigation}) => {
                 </View>
                 <Text style={styles.title}>Register</Text>
                 
-                    <InputField label={'Full Name'} />
-                    <InputField label={'Email Address'} keyboardType="email-address" />
-                    <InputField label={'Password'} inputType={'password'} />
-                    <InputField label={'Confirm Password'} inputType={'password'} />
-                    
-                {/* <View style={{borderBottomColor:"#ccc",borderBottomWidth:1,paddingBottom:8,marginBottom:30}}>
-                    <TouchableOpacity onPress={()=> setOpen(true)}>
-                        <Text style={{color:'#666', marginLeft:5,marginTop:5}}>Date of Birth</Text>
-                    </TouchableOpacity>
-                </View>
-                <DatePicker
-          modal
-          open={open}
-          date={date}
-          mode={'date'}
-          maximumDate={new Date('2005-01-01')}
-          minimumDate={new Date('1980-01-01')}
-          onConfirm={date => {
-            setOpen(false);
-            setDate(date);
-            setDobLabel(date.toDateString());
-          }}
-          onCancel={() => {
-            setOpen(false);
-          }}
-        /> */}
+                <InputField label={'Full Name'} />
+                <InputField label={'Email Address'} keyboardType="email-address" />
+                <InputField label={'Password'} inputType={'password'} />
+                <InputField label={'Confirm Password'} inputType={'password'} />
+                                
                 <CustomButton label={'Register'} onPress={()=>{}} />
                 <Text style={{textAlign: 'center', color:'#666', marginBottom: 30}}>Or, login with</Text>
                 <View style={{flexDirection:'row', justifyContent:'space-between',marginBottom:30}}>

@@ -4,7 +4,7 @@ import { View, Text } from 'react-native';
 const Onboard = () => {
     return (
         <View>
-            <Text></Text>
+            <Text>Onboard</Text>
         </View>
     )
 }

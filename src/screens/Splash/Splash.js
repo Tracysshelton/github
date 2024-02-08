@@ -18,7 +18,6 @@ const Splash = ({navigation}) => {
           onPress={() => navigation.navigate('Login')}
         >
           <Text style={styles.splahbtntext}>Let's Cook</Text>
-          {/* <MaterialIcons name="arrow-forward-ios" size={22} color="#fff" /> */}
         </TouchableOpacity>
       </SafeAreaView>
     );
