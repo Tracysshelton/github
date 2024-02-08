@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 
-const ListContainer = ({image, title, subtitle}) => {
+const ListContainer = ({image, title, subtitle, onPress}) => {
     
     return (
         <View style={{
@@ -20,7 +20,7 @@ const ListContainer = ({image, title, subtitle}) => {
                     <Text>{subtitle}</Text>
                 </View>
             </View>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={onPress}>
                 <Text>View</Text>
             </TouchableOpacity>
         </View>

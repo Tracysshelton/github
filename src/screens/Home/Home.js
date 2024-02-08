@@ -57,12 +57,33 @@ const Home = ({navigation}) => {
                 </View>
                 {latestTab == 1 && 
                     latestChef.map(item => (
-                        <ListItems Key={item.id} image={item.image} title={item.title} subtitle={item.subtitle} />
+                        <ListItems 
+                            Key={item.id} 
+                            image={item.image} 
+                            title={item.title} 
+                            subtitle={item.subtitle} 
+                            onPress={() => navigation.navigate('RecipeDetails',
+                                {
+                                    title: item.title,
+                                    subtitle: item.subtitle
+                                }
+                            )}
+                        />
                     ))
                 }
                 {latestTab == 2 && 
                     yourchef.map( item =>(
-                        <ListItems Key={item.id} image={item.image} title={item.title} subtitle={item.subtitle} />
+                        <ListItems 
+                            Key={item.id} 
+                            image={item.image} 
+                            title={item.title} 
+                            subtitle={item.subtitle} 
+                            onPress={() => navigation.navigate('RecipeDetails',
+                            {
+                                title: item.title,
+                                subtitle: item.subtitle
+                            })}
+                        />
                     ))
                 }
             </ScrollView>
