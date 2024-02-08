@@ -4,8 +4,6 @@ import { SafeAreaView,  View, Text,StyleSheet, Image, TextInput, TouchableOpacit
 import InputField from '../../components/InputField';
 import CustomButton from '../../components/CustomButton';
 
-// import { MaterialIcons } from 'react-native-vector-icons/MaterialIcons';
-
 const Login = ({navigation}) => {
     return (
         <SafeAreaView style={styles.container}>
@@ -16,11 +14,8 @@ const Login = ({navigation}) => {
                 <Text style={styles.title}>Login</Text>
                 
                 <InputField label={'Email Address'} keyboardType="email-address" />
-                    <InputField label={'Password'} inputType={'password'} fieldButtonLabel={'Forgot'} fieldButtonFunction={() => {}} />
-                {/* <TouchableOpacity onPress={() => {}}>
-                    <Text style={{color: '#AD40AF'}}>Forgot?</Text>
-                </TouchableOpacity>
-                </View> */}
+                <InputField label={'Password'} inputType={'password'} fieldButtonLabel={'Forgot'} fieldButtonFunction={() => {}} />
+            
                 <CustomButton label={'Login'} onPress={()=>{}} />
                 <Text style={{textAlign: 'center', color:'#666', marginBottom: 30}}>Or, login with</Text>
                 <View style={{flexDirection:'row', justifyContent:'space-between',marginBottom:30}}>
