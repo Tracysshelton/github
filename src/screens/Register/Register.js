@@ -1,27 +1,49 @@
-import React from 'react';
-import { SafeAreaView,  View, Text,StyleSheet, Image, TextInput, TouchableOpacity } from 'react-native';
+import React, { useState } from 'react';
+import { SafeAreaView, ScrollView, View, Text,StyleSheet, Image, TextInput, TouchableOpacity } from 'react-native';
 
 import InputField from '../../components/InputField';
 import CustomButton from '../../components/CustomButton';
+// import DatePicker from 'react-native-date-picker';
 
-// import { MaterialIcons } from 'react-native-vector-icons/MaterialIcons';
-
-const Login = ({navigation}) => {
+const Register = ({navigation}) => {
+    const [date, setDate] = useState(new Date())
+    const [open, setOpen] = useState(false)
     return (
         <SafeAreaView style={styles.container}>
+            <ScrollView>
             <View style={{paddingHorizontal: 25}}>
                 <View style={{alignItems: 'center'}}>
                     <Image source={require('../../assets/images/photo.jpg')} height={300} width={300} />
                 </View>
-                <Text style={styles.title}>Login</Text>
+                <Text style={styles.title}>Register</Text>
                 
-                <InputField label={'Email Address'} keyboardType="email-address" />
-                    <InputField label={'Password'} inputType={'password'} fieldButtonLabel={'Forgot'} fieldButtonFunction={() => {}} />
-                {/* <TouchableOpacity onPress={() => {}}>
-                    <Text style={{color: '#AD40AF'}}>Forgot?</Text>
-                </TouchableOpacity>
-                </View> */}
-                <CustomButton label={'Login'} onPress={()=>{}} />
+                    <InputField label={'Full Name'} />
+                    <InputField label={'Email Address'} keyboardType="email-address" />
+                    <InputField label={'Password'} inputType={'password'} />
+                    <InputField label={'Confirm Password'} inputType={'password'} />
+                    
+                {/* <View style={{borderBottomColor:"#ccc",borderBottomWidth:1,paddingBottom:8,marginBottom:30}}>
+                    <TouchableOpacity onPress={()=> setOpen(true)}>
+                        <Text style={{color:'#666', marginLeft:5,marginTop:5}}>Date of Birth</Text>
+                    </TouchableOpacity>
+                </View>
+                <DatePicker
+          modal
+          open={open}
+          date={date}
+          mode={'date'}
+          maximumDate={new Date('2005-01-01')}
+          minimumDate={new Date('1980-01-01')}
+          onConfirm={date => {
+            setOpen(false);
+            setDate(date);
+            setDobLabel(date.toDateString());
+          }}
+          onCancel={() => {
+            setOpen(false);
+          }}
+        /> */}
+                <CustomButton label={'Register'} onPress={()=>{}} />
                 <Text style={{textAlign: 'center', color:'#666', marginBottom: 30}}>Or, login with</Text>
                 <View style={{flexDirection:'row', justifyContent:'space-between',marginBottom:30}}>
                 <TouchableOpacity 
@@ -59,12 +81,13 @@ const Login = ({navigation}) => {
                 </TouchableOpacity>
                 </View>
                 <View  style={{flexDirection:'row',justifyContent: 'center',}}>
-                <Text>Next Chef</Text>
-                <TouchableOpacity onPress={() => navigation.navigate('Register')}>
-                <Text style={{color:'#AD40AF', fontWeight:'700'}}> Register here</Text>
+                <Text>Already a Chef</Text>
+                <TouchableOpacity onPress={() => navigation.goBack()}>
+                <Text style={{color:'#AD40AF', fontWeight:'700'}}> Login</Text>
                 </TouchableOpacity>
                 </View>
             </View>
+            </ScrollView>
         </SafeAreaView>
     )
 }
@@ -84,4 +107,4 @@ const styles = StyleSheet.create({
 
 })
 
-export default Login;
+export default Register;
